@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.1881696531534482 0.9820548449293117 0.012667406323967664 0.13688425681507693
-  position 0.07799033245136608 0.2097294710015932 0.49959116131828585
+  orientation -0.11737481981430824 0.9930128920647086 0.012188021449021254 0.2083808816747522
+  position 0.1280548884042811 0.1227518553860745 0.7758449921821687
 }
 TexturedBackground {
 }
@@ -12,7 +12,7 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.2 0
+  translation 0 0.075 0
   children [
     DEF bot Group {
       children [
@@ -47,6 +47,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        axis 0 0 1
         anchor -0.05 0 0.065
       }
       endPoint Solid {
@@ -72,6 +73,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
+        axis 0 0 1
         anchor -0.05 0 -0.065
       }
       endPoint Solid {
