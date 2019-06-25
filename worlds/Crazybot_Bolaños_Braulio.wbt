@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.24539685837315392 -0.9598839319114645 -0.1356584651202162 5.238140427145945
-  position 0.38421986070198555 0.19755800072221336 0.3022478484705984
+  orientation 0.8003033313737765 0.5903958360218363 0.10462951113386673 5.847338278761983
+  position -0.05497517812810532 0.3724903908414716 0.5089115305590678
 }
 TexturedBackground {
 }
@@ -12,8 +12,43 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
-  translation 0 0.08 0
+  translation 0 0.2 0
   children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.05 0 0.065
+      }
+      endPoint Solid {
+        translation -0.05 0 0.065
+        rotation 1 0 0 1.5707963220000003
+        children [
+          DEF Wheel Shape {
+            appearance Appearance {
+              material Material {
+                diffuseColor 1 0 0
+              }
+            }
+            geometry Cylinder {
+              height 0.03
+              radius 0.075
+            }
+          }
+        ]
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.05 0 -0.065
+      }
+      endPoint Solid {
+        translation -0.05 0 -0.065
+        rotation 1 0 0 1.5707963220000003
+        children [
+          USE Wheel
+        ]
+        name "solid(1)"
+      }
+    }
     Shape {
       appearance DEF Color_1 Appearance {
         material Material {
