@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.8003033313737765 0.5903958360218363 0.10462951113386673 5.847338278761983
-  position -0.05497517812810532 0.3724903908414716 0.5089115305590678
+  orientation -0.1881696531534482 0.9820548449293117 0.012667406323967664 0.13688425681507693
+  position 0.07799033245136608 0.2097294710015932 0.49959116131828585
 }
 TexturedBackground {
 }
@@ -14,6 +14,37 @@ Floor {
 Robot {
   translation 0 0.2 0
   children [
+    DEF bot Group {
+      children [
+        Transform {
+          translation 0.1075 -0.0575 0
+          rotation 1 0 0 1.5707963220000003
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0 1 0.5
+                }
+              }
+              geometry Sphere {
+                radius 0.0175
+              }
+            }
+          ]
+          rotationStep 0
+        }
+        DEF Caja Shape {
+          appearance DEF Color_1 Appearance {
+            material Material {
+              diffuseColor 0 0.5 1
+            }
+          }
+          geometry Box {
+            size 0.25 0.08 0.1
+          }
+        }
+      ]
+    }
     HingeJoint {
       jointParameters HingeJointParameters {
         anchor -0.05 0 0.065
@@ -34,6 +65,9 @@ Robot {
             }
           }
         ]
+        boundingObject USE Wheel
+        physics Physics {
+        }
       }
     }
     HingeJoint {
@@ -47,17 +81,13 @@ Robot {
           USE Wheel
         ]
         name "solid(1)"
-      }
-    }
-    Shape {
-      appearance DEF Color_1 Appearance {
-        material Material {
-          diffuseColor 0 0.5 1
+        boundingObject USE Wheel
+        physics Physics {
         }
-      }
-      geometry Box {
-        size 0.25 0.08 0.1
       }
     }
   ]
+  boundingObject USE bot
+  physics Physics {
+  }
 }
