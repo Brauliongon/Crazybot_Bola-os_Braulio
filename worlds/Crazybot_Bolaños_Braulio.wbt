@@ -89,6 +89,9 @@ Robot {
         anchor -0.05 0 -0.065
       }
       device [
+        PositionSensor {
+          resolution 1
+        }
         RotationalMotor {
           name "motor_left"
           consumptionFactor 300
