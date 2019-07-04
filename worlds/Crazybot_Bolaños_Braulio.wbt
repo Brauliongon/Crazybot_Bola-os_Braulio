@@ -2,18 +2,20 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.10707106942041855 -0.9882422117865431 -0.10914722596754013 1.6018236585737355
-  position -0.8627353634976419 0.48012278265499564 -0.18936795770473516
+  orientation -0.0655303955212041 -0.9960549813566711 -0.05983511826173452 1.4839372338301184
+  position -0.9102210930693081 0.40010330695978846 -0.09970734153600058
+  follow "robot"
+  followOrientation TRUE
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+  size 100 100
 }
 Robot {
   translation 0 0.0799999921645342 0
-  rotation 0.0025411727235561473 0.06735798175856685 -0.997725636001502 0.00044359830550598245
   children [
     DEF bot Group {
       children [
@@ -53,7 +55,8 @@ Robot {
       }
       device [
         PositionSensor {
-          resolution 1
+          name "position_sensor_right"
+          resolution 0.0052
         }
         RotationalMotor {
           name "motor_right"
@@ -90,7 +93,8 @@ Robot {
       }
       device [
         PositionSensor {
-          resolution 1
+          name "position_sensor_left"
+          resolution 0.0052
         }
         RotationalMotor {
           name "motor_left"
@@ -120,6 +124,7 @@ Robot {
           }
         }
       ]
+      name "ds"
       lookupTable [
         0 0 0
         0.02 0 0
@@ -132,4 +137,5 @@ Robot {
   boundingObject USE bot
   physics Physics {
   }
+  controller "Crazybot"
 }
