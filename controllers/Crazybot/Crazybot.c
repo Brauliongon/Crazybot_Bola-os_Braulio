@@ -28,6 +28,7 @@
   double l_pos_1,l_pos_dif,r_pos_1,r_pos_dif;
   double l_pos_2 = 0;
   double r_pos_2 = 0;
+  double robot_linear_velocity;
   float left_angv, right_angv, left_linv, right_linv, left_rpm, right_rpm;
   double dis_sen;
   double radio=0.075;
@@ -73,6 +74,8 @@ int main(int argc, char **argv)
   right_linv = right_angv*radio;
   right_rpm = right_angv*(60/(2*PI));
   
+  robot_linear_velocity = ((left_linv + right_linv)/2)*-1;
+  
   
      if(key==WB_KEYBOARD_UP){
   
@@ -93,7 +96,7 @@ int main(int argc, char **argv)
     if(key==WB_KEYBOARD_LEFT){
   
     wb_motor_set_position(wheel_left, INFINITY);
-    wb_motor_set_velocity(wheel_left, -35);
+    wb_motor_set_velocity(wheel_left, -20);
     wb_motor_set_position(wheel_right, INFINITY); 
     wb_motor_set_velocity(wheel_right, -45); 
     }
@@ -103,7 +106,7 @@ int main(int argc, char **argv)
     wb_motor_set_position(wheel_left, INFINITY);
     wb_motor_set_velocity(wheel_left, -45);
     wb_motor_set_position(wheel_right, INFINITY); 
-    wb_motor_set_velocity(wheel_right, -35); 
+    wb_motor_set_velocity(wheel_right, -20); 
     }
   
   printf("Angular Velocity Left: %f \n", left_angv);
@@ -114,7 +117,7 @@ int main(int argc, char **argv)
   printf("Linear Velocity Right: %f \n", left_linv);
   printf("RPM: %f \n", left_rpm);
   
-  
+  printf("Robot Linear Velocity: %f \n", robot_linear_velocity);
   
   fflush(stdout);
   };
