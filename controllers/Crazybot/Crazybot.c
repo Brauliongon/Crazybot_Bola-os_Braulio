@@ -108,16 +108,26 @@ int main(int argc, char **argv)
     wb_motor_set_position(wheel_right, INFINITY); 
     wb_motor_set_velocity(wheel_right, -20); 
     }
+    
+     if(key==WB_KEYBOARD_PAGEUP){
   
-  printf("Angular Velocity Left: %f \n", left_angv);
-  printf("Linear Velocity Left: %f \n", left_linv);
+    wb_motor_set_position(wheel_left, 0);
+    wb_motor_set_velocity(wheel_left, 0);
+    wb_motor_set_position(wheel_right, 0); 
+    wb_motor_set_velocity(wheel_right, 0); 
+    
+    
+    }
+  
+  printf("Angular Velocity Left: %f rad/s \n", left_angv);
+  printf("Linear Velocity Left: %f m/s \n", left_linv);
   printf("RPM: %f \n", left_rpm);
   
-  printf("Angular Velocity Right: %f \n", left_angv);
-  printf("Linear Velocity Right: %f \n", left_linv);
+  printf("Angular Velocity Right: %f rad/s \n", left_angv);
+  printf("Linear Velocity Right: %f m/s \n", left_linv);
   printf("RPM: %f \n", left_rpm);
   
-  printf("Robot Linear Velocity: %f \n", robot_linear_velocity);
+  printf("Robot Linear Velocity: %f m/s \n", robot_linear_velocity);
   
   fflush(stdout);
   };
